@@ -20,7 +20,7 @@ export default function App() {
   // Fixed player list
   const fixedPlayers = ["Bằng", "Minh", "Thuỷ", "Thảo", "Dạ", "Vân", "Hiếu", "Xuân", "Cao"];
 
-  const [selectedPlayers, setSelectedPlayers] = useState([]);
+  const [selectedPlayers, setSelectedPlayers] = useState<string[]>([]);
   const [courtFee, setCourtFee] = useState("");
   const [shuttleQty, setShuttleQty] = useState("");
   const shuttlePrice = 26100; // giá cố định mỗi quả cầu
