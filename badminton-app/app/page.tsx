@@ -11,6 +11,11 @@ const parseNumber = (value) => {
   return value.replace(/[^0-9]/g, "");
 };
 
+// format kiểu 50k, 100k
+const formatK = (value) => {
+  if (!value) return "0k";
+  return Math.round(value / 1000) + "k";
+};
 export default function App() {
   // Fixed player list
   const fixedPlayers = ["Bằng", "Minh", "Thuỷ", "Thảo", "Dạ", "Vân", "Hiếu", "Xuân", "Cao"];
@@ -40,12 +45,13 @@ export default function App() {
     if (selectedPlayers.length === 0) return "Chưa chọn người chơi";
 
     let text = `🏸 TÍNH TIỀN CẦU LÔNG\n`;
-    text += `Tổng: ${total.toLocaleString()} VND\n`;
-    text += `${selectedPlayers.length} người: mỗi người ${perPerson.toLocaleString()} VND\n\n`;
+    text += `Tổng: ${formatK(total)}\n`;
+    text += `${selectedPlayers.length} người: mỗi người ${formatK(perPerson)}\n\n`;
+    
 
     text += `Danh sách:\n`;
     selectedPlayers.forEach((p) => {
-      text += `- ${p}: ${perPerson.toLocaleString()} VND\n`;
+      text += `- ${p}: ${formatK(perPerson)}\n`;
     });
 
     return text;
