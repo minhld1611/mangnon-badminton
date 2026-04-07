@@ -44,7 +44,12 @@ export default function App() {
   const generateText = () => {
     if (selectedPlayers.length === 0) return "Chưa chọn người chơi";
 
-    let text = `🏸 TÍNH TIỀN CẦU LÔNG\n`;
+    const today = new Date().toLocaleDateString('vi-VN', {
+      weekday: 'long',
+      day: '2-digit',
+      month: '2-digit'
+    });
+    let text = `🏸 TÍNH TIỀN CẦU LÔNG NGÀY ${today} \n`;
     text += `Tổng: ${formatK(total)}\n`;
     text += `${selectedPlayers.length} người: mỗi người ${formatK(perPerson)}\n\n`;
     
