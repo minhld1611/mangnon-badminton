@@ -2,17 +2,17 @@
 import { useState } from "react";
 
 // helpers
-const formatNumber = (value) => {
+const formatNumber = (value : any) => {
   if (!value) return "";
   return Number(value).toLocaleString();
 };
 
-const parseNumber = (value) => {
+const parseNumber = (value : any) => {
   return value.replace(/[^0-9]/g, "");
 };
 
 // format kiểu 50k, 100k
-const formatK = (value) => {
+const formatK = (value : any) => {
   if (!value) return "0k";
   return Math.round(value / 1000) + "k";
 };
@@ -26,13 +26,14 @@ export default function App() {
   const shuttlePrice = 26100; // giá cố định mỗi quả cầu
   const [otherFee, setOtherFee] = useState("");
 
-  const togglePlayer = (player) => {
+  const togglePlayer = (player: string) => {
     if (selectedPlayers.includes(player)) {
       setSelectedPlayers(selectedPlayers.filter((p) => p !== player));
     } else {
       setSelectedPlayers([...selectedPlayers, player]);
     }
   };
+  
 
   const shuttleFee = Number(shuttleQty || 0) * shuttlePrice;
   const total = Number(courtFee || 0) + shuttleFee + Number(otherFee || 0);
