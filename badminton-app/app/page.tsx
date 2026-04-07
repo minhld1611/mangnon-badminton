@@ -2,17 +2,17 @@
 import { useState } from "react";
 
 // helpers
-const formatNumber = (value : any) => {
+const formatNumber = (value: string) => {
   if (!value) return "";
   return Number(value).toLocaleString();
 };
 
-const parseNumber = (value : any) => {
+const parseNumber = (value: string) => {
   return value.replace(/[^0-9]/g, "");
 };
 
 // format kiểu 50k, 100k
-const formatK = (value : any) => {
+const formatK = (value: number) => {
   if (!value) return "0k";
   return Math.round(value / 1000) + "k";
 };
